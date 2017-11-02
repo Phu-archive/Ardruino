@@ -4,6 +4,7 @@ class AIPad extends Pad{
     super(start_x, start_y, start_speed, start_pad_width, start_pad_height);
   }
 
+  // Follow the ball y direction.
   void move(Ball b){
       y = y + (b.y - y) * speed_y * speed_y;
   }

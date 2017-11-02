@@ -1,3 +1,4 @@
+// This is the base class for all objects.
 class Object {
   float x;
   float y;

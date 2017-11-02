@@ -1,3 +1,4 @@
+// This the pad class.
 class Pad extends Object{
   float pad_width;
   float pad_height;

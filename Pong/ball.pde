@@ -8,7 +8,7 @@ class Ball extends Object{
     size = start_size;
     fromPad = start_Pad;
   }
-
+  
   boolean isHitPad(Pad p){
     // https://stackoverflow.com/questions/21089959/detecting-collision-of-rectangle-with-circle
 
