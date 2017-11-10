@@ -78,11 +78,6 @@ void setup() {
   String portName = "/dev/cu.usbmodem14511";
   myPort = new Serial(this, portName, 9600);
 
-  PostRequest post = new PostRequest("http://phuarduino.azurewebsites.net/add.php");
-  post.addData("clean", "clean");
-  println("Sent");
-  println("Reponse Content: " + post.getContent());
-
   // Assune that we are in light mode.
   color_scheme = lightMode;
 }
@@ -182,6 +177,19 @@ int getGroupLiberty(ArrayList<ArrayList<Integer>> groupPos){
   }
 
   return sum_liberty;
+}
+
+// This store the state of the table at certain time.
+String boardToString(){
+  String mainString = "";
+
+  for(int i = 0; i < 9; i++){
+    for (int j = 0; j < 9; j++) {
+      mainString = mainString + str(board[i][j]);
+    }
+  }
+
+  return mainString;
 }
 
 // After we find the group, check whether the group of stones is surrounded or not.
@@ -322,8 +330,7 @@ void draw() {
       board[cursor_y-1][cursor_x-1] = current_player;
 
       PostRequest post = new PostRequest("http://phuarduino.azurewebsites.net/add.php");
-      post.addData("x", str(cursor_x));
-      post.addData("y", str(cursor_y));
+      post.addData("state", boardToString());
       post.send();
 
       switchPlayer();

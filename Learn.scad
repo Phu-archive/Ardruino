@@ -2,7 +2,7 @@
 
 
 // Button height 
-buttonHeight = 1;
+buttonHeight = 0.5;
 
 // Number of buttons
 buttonNum = 5;
@@ -63,8 +63,8 @@ difference() {
         }
     }
     
-    translate([1, 1, 0.5]){
-        color([1,0,0]) cube([30, 9, 2]);
+    translate([1, 1, 1]){
+        color([1,0,0]) cube([30, 20, 1]);
     }
 }
 
